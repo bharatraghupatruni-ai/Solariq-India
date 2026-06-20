@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SolarIQ India | 4-Step Feasibility Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#726200",
+                    "secondary-container": "#fcdf46",
+                    "on-secondary-fixed-variant": "#524600",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "tertiary-container": "#004b59",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#acedff",
+                    "surface-container-high": "#dce9ff",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-variant": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#404944",
+                    "outline": "#707974",
+                    "on-tertiary-fixed": "#001f26",
+                    "primary-fixed": "#b0f0d6",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "primary-container": "#064e3b",
+                    "tertiary": "#00333d",
+                    "secondary-fixed": "#ffe24c",
+                    "surface-container-low": "#eff4ff",
+                    "background": "#f8f9ff",
+                    "on-primary-container": "#80bea6",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "inverse-primary": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#cbdbf5",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#e2c62d",
+                    "primary": "#003527",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-container": "#29c1df",
+                    "surface-tint": "#2b6954",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "on-secondary-fixed": "#211b00",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "secondary": "#6d5e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Sora"],
+                    "body-sm": ["Sora"],
+                    "label-md": ["Sora"],
+                    "body-md": ["Sora"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "data-display": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "data-display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 53, 39, 0.05);
+        }
+        .neomorphic-inset {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), 
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+        }
+        .step-transition {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #fcdf46;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(109, 94, 0, 0.2);
+            border: 2px solid white;
+        }
+        .active-nav-link {
+            border-bottom: 2px solid #003527;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/85 backdrop-blur-xl border-b border-white/20 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SolarIQ India</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Simulate</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Analytics</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="bg-primary-container/10 px-4 py-2 rounded-full text-primary font-label-md text-label-md">Solar Credits: 1,250</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">account_circle</span>
+</div>
+</header>
+<main class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Progress Indicator -->
+<div class="max-w-3xl mx-auto mb-12">
+<div class="flex justify-between relative">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-high -z-10 -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-0 h-1 bg-primary -z-10 -translate-y-1/2 transition-all duration-500" id="progress-line"></div>
+<!-- Step Markers -->
+<div class="flex flex-col items-center gap-2 group" onclick="goToStep(1)">
+<div class="w-10 h-10 rounded-full glass-card flex items-center justify-center border-2 border-primary text-primary font-bold transition-all" id="marker-1">1</div>
+<span class="font-label-md text-label-md text-primary">Location</span>
+</div>
+<div class="flex flex-col items-center gap-2 group" onclick="goToStep(2)">
+<div class="w-10 h-10 rounded-full glass-card flex items-center justify-center border-2 border-surface-container-high text-on-surface-variant font-bold transition-all" id="marker-2">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Property</span>
+</div>
+<div class="flex flex-col items-center gap-2 group" onclick="goToStep(3)">
+<div class="w-10 h-10 rounded-full glass-card flex items-center justify-center border-2 border-surface-container-high text-on-surface-variant font-bold transition-all" id="marker-3">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Energy</span>
+</div>
+<div class="flex flex-col items-center gap-2 group" onclick="goToStep(4)">
+<div class="w-10 h-10 rounded-full glass-card flex items-center justify-center border-2 border-surface-container-high text-on-surface-variant font-bold transition-all" id="marker-4">4</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Budget</span>
+</div>
+</div>
+</div>
+<!-- Wizard Content -->
+<div class="max-w-4xl mx-auto">
+<div class="glass-card rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+<!-- Step 1: Location -->
+<section class="step-transition" id="step-1">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="font-label-md text-label-md text-secondary-fixed-dim bg-primary/10 px-3 py-1 rounded-full uppercase tracking-widest">Feasibility Engine</span>
+<h1 class="font-headline-lg text-headline-lg text-primary mt-4 mb-6">Where is your project located?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Pincode helps us calculate local irradiance, sun hours, and available government subsidies in your region.</p>
+<div class="space-y-6">
+<div class="relative">
+<label class="font-label-md text-label-md block mb-2 ml-1 text-on-surface-variant">Enter Pincode</label>
+<input class="w-full h-16 bg-surface-container-low rounded-2xl px-6 font-data-display text-data-display text-primary outline-none focus:ring-2 focus:ring-primary transition-all neomorphic-inset" maxlength="6" placeholder="400001" type="text"/>
+<span class="absolute right-6 top-12 material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="font-label-md text-label-md text-on-surface-variant">City/State</p>
+<p class="font-body-md text-body-md font-semibold text-primary">Mumbai, Maharashtra</p>
+</div>
+<div class="flex-1 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="font-label-md text-label-md text-on-surface-variant">DISCOM</p>
+<p class="font-body-md text-body-md font-semibold text-primary">Tata Power (TPC-D)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-96 rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A cinematic aerial view of Mumbai's cityscape at sunset, featuring the iconic skyline under a warm, glowing sky that transitions from deep oranges to golden yellows. The lighting is soft and atmospheric, highlighting the high-density urban environment with a high-key, modern aesthetic. The color palette is rich with deep greens and warm golds, creating a sophisticated and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_HXPlVK1cNd3mDtDwkfF3EPYg5w85d75V1scYTV_GHyyv-GNN3O8ugJr9wrgfqda8y-2nOtEpnAE1iHPb4Dh8BbefGDTYNCBYpt24v_1eqkz8dDM5GIQaOcZ8GyAbRUDh8wCggaWXPIMuJQy3_I5RXsPQWH5uwT2cqwQ-1y-qr-iRXztP9s-hNU1IYZ5OJH6Pg7vJBIdiMg0FkoApDXJ0GWz6im21Zv864L3glRUNJtQnCQj5sSR6p9OigCru6zGHBTCjP3fL_Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="material-symbols-outlined mb-2">radar</span>
+<p class="font-label-md text-label-md opacity-80">Signal Strength</p>
+<p class="font-headline-md text-headline-md">High Coverage Area</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 2: Property (Hidden by default) -->
+<section class="step-transition hidden opacity-0 translate-x-12" id="step-2">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Property Characteristics</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<label class="cursor-pointer group">
+<input checked="" class="hidden peer" name="property" type="radio"/>
+<div class="p-6 rounded-3xl border-2 border-surface-container-high flex flex-col items-center gap-4 peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:scale-105">
+<span class="material-symbols-outlined text-4xl text-primary">home</span>
+<span class="font-body-md text-body-md font-semibold">Residential</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" name="property" type="radio"/>
+<div class="p-6 rounded-3xl border-2 border-surface-container-high flex flex-col items-center gap-4 peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:scale-105">
+<span class="material-symbols-outlined text-4xl text-primary">business</span>
+<span class="font-body-md text-body-md font-semibold">Commercial</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" name="property" type="radio"/>
+<div class="p-6 rounded-3xl border-2 border-surface-container-high flex flex-col items-center gap-4 peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:scale-105">
+<span class="material-symbols-outlined text-4xl text-primary">factory</span>
+<span class="font-body-md text-body-md font-semibold">Industrial</span>
+</div>
+</label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Roof Orientation</p>
+<div class="flex justify-between items-center bg-surface-container-low p-4 rounded-2xl neomorphic-inset">
+<button class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">chevron_left</span></button>
+<div class="text-center">
+<p class="font-body-lg text-body-lg font-bold text-primary">South Facing</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Optimal Performance</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="space-y-6">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Roof Material</p>
+<select class="w-full h-16 bg-surface-container-low rounded-2xl px-6 font-body-md text-body-md border-none neomorphic-inset outline-none focus:ring-2 focus:ring-primary">
+<option>Reinforced Concrete (RCC)</option>
+<option>Metal Sheet</option>
+<option>Clay Tiles</option>
+<option>Asbestos Sheet</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Step 3: Energy Profile (Hidden by default) -->
+<section class="step-transition hidden opacity-0 translate-x-12" id="step-3">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Current Energy Profile</h2>
+<div class="space-y-16">
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<label class="font-headline-md text-headline-md text-primary">Monthly Bill (INR)</label>
+<span class="font-data-display text-data-display text-primary">₹ <span id="bill-val">8,500</span></span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer" max="50000" min="1000" oninput="document.getElementById('bill-val').innerText = this.value" type="range" value="8500"/>
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant">
+<span>₹ 1,000</span>
+<span>₹ 50,000+</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<label class="font-headline-md text-headline-md text-primary">Consumption (kWh)</label>
+<span class="font-data-display text-data-display text-primary"><span id="kwh-val">450</span> Units</span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer" max="5000" min="100" oninput="document.getElementById('kwh-val').innerText = this.value" type="range" value="450"/>
+<div class="flex justify-between font-label-md text-label-md text-on-surface-variant">
+<span>100 kWh</span>
+<span>5000 kWh</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 4: Budget & Hardware (Hidden by default) -->
+<section class="step-transition hidden opacity-0 translate-x-12" id="step-4">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Investment &amp; Hardware</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-8">
+<div class="space-y-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Investment Range</p>
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer" max="10" min="1" type="range" value="4"/>
+<div class="flex justify-between font-body-sm text-body-sm font-semibold text-primary">
+<span>Budget-Friendly</span>
+<span>Premium / High-Yield</span>
+</div>
+</div>
+<div class="p-6 bg-secondary-container/20 rounded-3xl flex items-center justify-between border border-secondary-container/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">battery_charging_full</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold text-primary">Battery Storage</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Add for night energy use</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-6">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Panel Technology</p>
+<div class="space-y-4">
+<label class="flex items-center p-5 rounded-2xl bg-surface-container-low border-2 border-transparent peer-checked:border-primary transition-all cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-surface-container-high focus:ring-primary" name="panel" type="radio"/>
+<div class="ml-4">
+<p class="font-body-md text-body-md font-bold text-primary">Monocrystalline</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Highest efficiency, sleek black finish.</p>
+</div>
+</label>
+<label class="flex items-center p-5 rounded-2xl bg-surface-container-low border-2 border-transparent transition-all cursor-pointer group">
+<input class="w-5 h-5 text-primary border-surface-container-high focus:ring-primary" name="panel" type="radio"/>
+<div class="ml-4">
+<p class="font-body-md text-body-md font-bold text-primary">Polycrystalline</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Cost-effective, reliable standard blue panels.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Controls -->
+<div class="mt-12 pt-8 border-t border-surface-container-high flex justify-between items-center">
+<button class="hidden flex items-center gap-2 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" id="prev-btn" onclick="prevStep()">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back
+                    </button>
+<div class="flex-grow"></div>
+<button class="bg-primary text-white px-10 py-4 rounded-full font-label-md text-label-md font-bold flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20" id="next-btn" onclick="nextStep()">
+                        Continue
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="hidden bg-secondary-container text-on-secondary-container px-10 py-4 rounded-full font-label-md text-label-md font-bold flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-secondary-container/20" id="submit-btn" onclick="submitSimulation()">
+                        Generate Analysis
+                        <span class="material-symbols-outlined">query_stats</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-8 px-margin-desktop flex justify-between items-center max-w-container-max mx-auto border-t border-outline-variant/30">
+<div class="flex items-center gap-6">
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 SolarIQ India. AI-Driven Sustainability.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Feasibility API</a>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateProgress() {
+            const progressLine = document.getElementById('progress-line');
+            const percent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressLine.style.width = `${percent}%`;
+
+            for (let i = 1; i <= totalSteps; i++) {
+                const marker = document.getElementById(`marker-${i}`);
+                const label = marker.nextElementSibling;
+                
+                if (i < currentStep) {
+                    marker.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                    marker.classList.remove('border-surface-container-high', 'text-on-surface-variant', 'border-primary', 'text-primary');
+                    marker.classList.add('bg-primary', 'text-white', 'border-primary');
+                    label.classList.add('text-primary');
+                } else if (i === currentStep) {
+                    marker.innerHTML = i;
+                    marker.classList.remove('bg-primary', 'text-white', 'border-surface-container-high', 'text-on-surface-variant');
+                    marker.classList.add('border-primary', 'text-primary');
+                    label.classList.add('text-primary');
+                } else {
+                    marker.innerHTML = i;
+                    marker.classList.remove('bg-primary', 'text-white', 'border-primary', 'text-primary');
+                    marker.classList.add('border-surface-container-high', 'text-on-surface-variant');
+                    label.classList.remove('text-primary');
+                    label.classList.add('text-on-surface-variant');
+                }
+            }
+        }
+
+        function showStep(step) {
+            for (let i = 1; i <= totalSteps; i++) {
+                const el = document.getElementById(`step-${i}`);
+                if (i === step) {
+                    el.classList.remove('hidden');
+                    setTimeout(() => {
+                        el.classList.remove('opacity-0', 'translate-x-12');
+                    }, 50);
+                } else {
+                    el.classList.add('hidden', 'opacity-0', 'translate-x-12');
+                }
+            }
+
+            // Controls
+            document.getElementById('prev-btn').classList.toggle('hidden', step === 1);
+            document.getElementById('next-btn').classList.toggle('hidden', step === totalSteps);
+            document.getElementById('submit-btn').classList.toggle('hidden', step !== totalSteps);
+            
+            updateProgress();
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function goToStep(step) {
+            if (step < currentStep) {
+                currentStep = step;
+                showStep(currentStep);
+            }
+        }
+
+        function submitSimulation() {
+            alert('Initiating AI-powered feasibility calculation for Project Mumbai-Alpha...');
+        }
+
+        // Initialize first step
+        showStep(1);
+    </script>
+</body></html>

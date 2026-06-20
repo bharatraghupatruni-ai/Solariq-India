@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SolarIQ India | Future-Proof Your Roof</title>
+<!-- Google Fonts: Playfair Display for Headlines, Sora for Body/Data -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#726200",
+                    "secondary-container": "#fcdf46",
+                    "on-secondary-fixed-variant": "#524600",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "tertiary-container": "#004b59",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#acedff",
+                    "surface-container-high": "#dce9ff",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-variant": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#404944",
+                    "outline": "#707974",
+                    "on-tertiary-fixed": "#001f26",
+                    "primary-fixed": "#b0f0d6",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "primary-container": "#064e3b",
+                    "tertiary": "#00333d",
+                    "secondary-fixed": "#ffe24c",
+                    "surface-container-low": "#eff4ff",
+                    "background": "#f8f9ff",
+                    "on-primary-container": "#80bea6",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "inverse-primary": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#cbdbf5",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#e2c62d",
+                    "primary": "#003527",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-container": "#29c1df",
+                    "surface-tint": "#2b6954",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "on-secondary-fixed": "#211b00",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "secondary": "#6d5e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Sora"],
+                    "body-sm": ["Sora"],
+                    "label-md": ["Sora"],
+                    "body-md": ["Sora"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "data-display": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "data-display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 40px 60px -15px rgba(0, 53, 39, 0.05);
+        }
+        .neomorphic-inset {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .solar-gradient-text {
+            background: linear-gradient(135deg, #003527 0%, #6d5e00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body {
+            background: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%);
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/85 backdrop-blur-xl border-b border-white/20 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SolarIQ India</span>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Simulate</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex px-4 py-2 bg-primary/5 rounded-full border border-primary/10">
+<span class="font-label-md text-label-md text-primary font-bold">Solar Credits: 1,250</span>
+</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-gutter items-center z-10">
+<div class="space-y-8 max-w-2xl">
+<div class="inline-flex items-center px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full border border-secondary/20 shadow-sm animate-fade-in">
+<span class="material-symbols-outlined mr-2 text-[18px]">verified</span>
+<span class="font-label-md text-label-md">PM Surya Ghar Compliant Modeling</span>
+</div>
+<h1 class="font-display-lg text-display-lg solar-gradient-text leading-tight">
+                        Future-Proof Your Roof with SolarIQ AI.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant pr-12">
+                        Get a high-precision solar suitability report in 5 minutes using NASA satellite data and ML predictions tailored for the Indian landscape.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-full font-label-md text-label-md tracking-wider flex items-center gap-2 hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-95">
+                            Start Your Free Analysis
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-primary text-primary px-10 py-5 rounded-full font-label-md text-label-md tracking-wider hover:bg-primary/5 transition-all">
+                            View Sample Report
+                        </button>
+</div>
+</div>
+<div class="relative h-[600px] hidden lg:block">
+<div class="absolute inset-0 rounded-[48px] overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A high-angle architectural shot of a modern residential villa in Mumbai featuring a sleek rooftop solar panel installation under a clear, bright golden hour sky. The design reflects a premium sustainability aesthetic with clean lines and glass accents, matching a deep emerald and solar gold color palette. The lighting is warm and cinematic, highlighting the reflective properties of the photovoltaic cells against the pristine white roof." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmyxctIF0iyI9drigj5C3u2exfBsqWP5yv-fVKOSXPs0B9B-HIa6xjZ5banUnPQUth4b6zMrj17cEVnRC-xA8HrqUQyVdszzlWV727xYZL6ewP_uoTkm_m2Uf6uEnR7ZH5C95ThSdRrrMa_FRLDI_jBL78lS-9fp8-bb8TstUYA17s_RxKP2rYYBD9qCywuKjtgGmeGFh5_OWuKB7tvPYshffrPpA4SiSblxAOWIAsEL5hamTo0pIEmeshBTukD7VObaDlO4zdcBg"/>
+</div>
+<!-- Overlapping Glass Cards -->
+<div class="glass-card absolute -left-12 top-20 p-6 rounded-3xl w-64 animate-bounce-slow">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">wb_sunny</span>
+</div>
+<div>
+<div class="font-label-md text-[10px] uppercase tracking-widest text-on-surface-variant">Efficiency</div>
+<div class="font-data-display text-[20px] font-bold">24.2%</div>
+</div>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="glass-card absolute -bottom-8 right-12 p-8 rounded-3xl w-72 shadow-2xl">
+<div class="font-label-md text-label-md text-primary font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">insights</span>
+                            Live Generation
+                        </div>
+<div class="flex items-end gap-1 mb-2">
+<span class="font-data-display text-headline-lg">1,250</span>
+<span class="font-label-md text-label-md text-on-surface-variant pb-2">kWh/Yr</span>
+</div>
+<div class="flex gap-1 h-12 items-end">
+<div class="bg-primary/20 w-3 rounded-t-sm h-6"></div>
+<div class="bg-primary/20 w-3 rounded-t-sm h-8"></div>
+<div class="bg-primary/40 w-3 rounded-t-sm h-12"></div>
+<div class="bg-primary/20 w-3 rounded-t-sm h-10"></div>
+<div class="bg-primary w-3 rounded-t-sm h-16"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Atmospheric BG -->
+<div class="absolute -right-1/4 top-0 w-[800px] h-[800px] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
+</section>
+<!-- Quick Stats Section -->
+<section class="py-24 px-margin-desktop bg-surface-container-low border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="space-y-2">
+<h3 class="font-data-display text-display-lg text-primary">40%</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Subsidy Eligibility</p>
+<div class="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-data-display text-display-lg text-primary">4-Yr</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Payback Period</p>
+<div class="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-data-display text-display-lg text-primary">25-Yr</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Panel Lifecycle</p>
+<div class="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-data-display text-display-lg text-primary">6%</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Inflation Shield</p>
+<div class="h-1 w-12 bg-secondary mx-auto mt-4 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Feature Grid (Bento) -->
+<section class="py-32 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Precision Intelligence for Maximum Yield.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Our platform combines NASA's global solar irradiance data with localized Indian grid modeling to ensure your investment is mathematically optimized.</p>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</div>
+<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Feature 1 -->
+<div class="glass-card p-10 rounded-[32px] md:col-span-2 group hover:-translate-y-1 transition-transform duration-500 overflow-hidden relative">
+<div class="relative z-10">
+<div class="w-16 h-16 rounded-2xl bg-primary-container text-on-primary-container flex items-center justify-center mb-8 shadow-inner">
+<span class="material-symbols-outlined text-[32px]">satellite_alt</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">NASA Data Integration</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">We pull direct solar radiation datasets from NASA Power APIs to model shadowing and seasonal variation with 98.7% historical accuracy.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[300px] text-primary">public</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-on-background text-on-primary p-10 rounded-[32px] hover:-translate-y-1 transition-transform duration-500 flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-2xl bg-secondary text-on-primary flex items-center justify-center mb-8 shadow-inner">
+<span class="material-symbols-outlined text-[32px]">account_balance</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-primary mb-4">PM Surya Ghar</h4>
+<p class="font-body-sm text-body-sm text-on-primary/70">Built-in calculator for the 2024 national solar subsidy scheme. Instantly see your grant eligibility based on roof size.</p>
+</div>
+<a class="mt-8 flex items-center gap-2 font-label-md text-label-md text-secondary hover:underline" href="#">Check Eligibility <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+</div>
+<!-- Feature 3 -->
+<div class="glass-card p-10 rounded-[32px] hover:-translate-y-1 transition-transform duration-500">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-high text-primary flex items-center justify-center mb-8 shadow-inner border border-white/50">
+<span class="material-symbols-outlined text-[32px]">query_stats</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">25-Year Returns</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive financial forecasting including maintenance costs, panel degradation, and grid tariff escalation over decades.</p>
+</div>
+<!-- Feature 4 -->
+<div class="glass-card p-10 rounded-[32px] md:col-span-2 group hover:-translate-y-1 transition-transform duration-500 overflow-hidden relative">
+<div class="flex flex-col md:flex-row gap-8 items-center h-full">
+<div class="flex-1">
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Multi-Panel Simulation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Compare Monocrystalline, Polycrystalline, and Bifacial technologies in a single click. Discover the optimal balance of CAPEX vs. Yield for your specific city.</p>
+<div class="mt-6 flex gap-4">
+<div class="px-4 py-2 bg-surface rounded-xl border border-outline-variant/30 font-label-md text-label-md">Monocrystalline</div>
+<div class="px-4 py-2 bg-surface rounded-xl border border-outline-variant/30 font-label-md text-label-md">Bifacial Pro</div>
+</div>
+</div>
+<div class="flex-1 w-full bg-surface-container-high/50 rounded-2xl p-4 neomorphic-inset h-48 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/20 text-[80px]">grid_on</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA / Conversion -->
+<section class="py-32 px-margin-desktop">
+<div class="max-w-container-max mx-auto bg-primary rounded-[48px] p-12 md:p-24 relative overflow-hidden text-center">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-display-lg text-headline-lg text-on-primary mb-8">Ready to turn your roof into a revenue engine?</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 mb-12">Join 4,500+ Indian households who have used SolarIQ to plan their transition to sustainable energy.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-secondary text-on-secondary px-12 py-6 rounded-full font-label-md text-label-md font-bold uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all">
+                            Analyze My Roof Now
+                        </button>
+<button class="bg-white/10 backdrop-blur-md text-on-primary border border-white/20 px-12 py-6 rounded-full font-label-md text-label-md hover:bg-white/20 transition-all">
+                            Speak to an Advisor
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto border-t border-outline-variant/30 bg-surface-container-lowest">
+<div class="mb-6 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-primary">SolarIQ India</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 opacity-70">© 2024 SolarIQ India. AI-Driven Sustainability.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Feasibility API</a>
+</div>
+</footer>
+<!-- SideNavBar - Only shown if needed, but per instructions we keep TopNav for Landing -->
+<!-- (SideNav implementation is typically for inner dash, suppressing here per relevance rule) -->
+<script>
+        // Micro-interactions and subtle scroll effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>

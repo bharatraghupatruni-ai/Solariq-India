@@ -1,0 +1,28 @@
+{
+  "model_version": "2.0.0",
+  "feature_schema_version": "2.0",
+  "training_timestamp": "2026-06-17T10:52:10.770295",
+  "metrics": {
+    "mae": 0.28874700390746866,
+    "rmse": 0.4479617396984938,
+    "r2": 0.9500774506357624
+  },
+  "feature_importance": {
+    "annual_ghi": 0.027043022215366364,
+    "peak_sun_hours": 0.00891847349703312,
+    "avg_temperature": 0.01439558807760477,
+    "avg_humidity": 0.017556307837367058,
+    "roof_area": 0.18268916010856628,
+    "orientation_score": 0.18361297249794006,
+    "shading_score": 0.45992156863212585,
+    "cleaning_score": 0.011959376744925976,
+    "panel_efficiency": 0.015985524281859398,
+    "environment_score": 0.03103073127567768,
+    "latitude": 0.024939026683568954,
+    "month": 0.02194824069738388
+  },
+  "training_data": {
+    "nasa_records": 700,
+    "synthetic_records": 300
+  }
+}

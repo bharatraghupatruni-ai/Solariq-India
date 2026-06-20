@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SolarIQ India | Feasibility Report - Bandra West</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 53, 39, 0.05);
+        }
+        .neomorphic-inset {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.05), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+        }
+        .solar-gradient-text {
+            background: linear-gradient(135deg, #6d5e00 0%, #003527 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #fcdf46;
+            border: 2px solid #003527;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        body {
+            background: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%);
+            min-height: 100vh;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#726200",
+                    "secondary-container": "#fcdf46",
+                    "on-secondary-fixed-variant": "#524600",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "tertiary-container": "#004b59",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#acedff",
+                    "surface-container-high": "#dce9ff",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-variant": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#404944",
+                    "outline": "#707974",
+                    "on-tertiary-fixed": "#001f26",
+                    "primary-fixed": "#b0f0d6",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "primary-container": "#064e3b",
+                    "tertiary": "#00333d",
+                    "secondary-fixed": "#ffe24c",
+                    "surface-container-low": "#eff4ff",
+                    "background": "#f8f9ff",
+                    "on-primary-container": "#80bea6",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "inverse-primary": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#cbdbf5",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#e2c62d",
+                    "primary": "#003527",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-container": "#29c1df",
+                    "surface-tint": "#2b6954",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "on-secondary-fixed": "#211b00",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "secondary": "#6d5e00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Sora"],
+                    "body-sm": ["Sora"],
+                    "label-md": ["Sora"],
+                    "body-md": ["Sora"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "data-display": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "data-display": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto bg-surface/85 backdrop-blur-xl border-b border-white/20 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SolarIQ India</span>
+<div class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Simulate</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-primary-container/10 px-4 py-2 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary mr-2" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md text-primary font-bold">Solar Credits: 1,250</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-primary/5 p-2 rounded-lg transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-primary/5 p-2 rounded-lg transition-all" data-icon="account_circle">account_circle</span>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-80px)] w-64 flex flex-col p-4 space-y-2 bg-surface/90 backdrop-blur-2xl border-r border-white/20 hidden md:flex">
+<div class="mb-6 px-4 pt-2">
+<h3 class="font-headline-md text-headline-md font-bold text-primary">Project Alpha</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mumbai Region</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="wb_sunny">wb_sunny</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="filter_drama">filter_drama</span>
+<span class="font-label-md text-label-md">Weather AI</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md">Grid Sync</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold flex items-center justify-center gap-2 mb-4 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            New Simulation
+        </button>
+<div class="border-t border-outline-variant/30 pt-4 pb-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 px-margin-desktop pb-12 max-w-container-max mx-auto">
+<!-- Property Header -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block">Feasibility Report</span>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Bandra West Residence, Mumbai</h1>
+<div class="flex items-center gap-4 mt-2 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-body-sm text-body-sm">19.05° N, 72.82° E</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="update">update</span>
+<span class="font-body-sm text-body-sm">Last Synced: 2 mins ago</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="bg-white border border-primary/20 text-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    PDF Export
+                </button>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-primary/20 transition-all">
+                    Finalize Order
+                </button>
+</div>
+</header>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Primary Metrics Gauges -->
+<section class="md:col-span-4 glass-card p-8 rounded-3xl flex flex-col justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6">Readiness Assessment</h3>
+<div class="space-y-10">
+<!-- Score 1 -->
+<div class="flex items-center justify-between">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251" stroke-dashoffset="20" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-data-display text-data-display text-primary">92</div>
+</div>
+<div class="flex-1 ml-6">
+<h4 class="font-headline-md text-headline-md leading-none">Solar Readiness</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Excellent rooftop structure and exposure.</p>
+</div>
+</div>
+<!-- Score 2 -->
+<div class="flex items-center justify-between">
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251" stroke-dashoffset="37" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-data-display text-data-display text-secondary">85</div>
+</div>
+<div class="flex-1 ml-6">
+<h4 class="font-headline-md text-headline-md leading-none">Health Index</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Limited by urban dust and seasonal humidity.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ML Generation Predictions -->
+<section class="md:col-span-8 glass-card p-8 rounded-3xl overflow-hidden relative">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Energy Prediction Model</h3>
+<h4 class="font-headline-md text-headline-md">Annual kWh Generation</h4>
+</div>
+<div class="bg-primary/5 px-3 py-1 rounded-lg border border-primary/10">
+<span class="font-label-md text-label-md text-primary">ML Confidence: R² 0.98</span>
+</div>
+</div>
+<div class="h-64 w-full flex items-end gap-2 group">
+<!-- Placeholder for ML Line Chart with bounds -->
+<div class="w-full h-full relative">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent rounded-lg"></div>
+<!-- Simulated Chart Path -->
+<svg class="w-full h-full fill-none stroke-primary stroke-[2]" viewbox="0 0 800 200">
+<path d="M0,150 C50,140 100,160 150,130 C200,100 250,110 300,80 C350,50 400,60 450,40 C500,20 550,50 600,60 C650,70 700,50 750,30"></path>
+<path class="stroke-primary/20 stroke-[1]" d="M0,160 C50,150 100,170 150,140 C200,110 250,120 300,90 C350,60 400,70 450,50 C500,30 550,60 600,70 C650,80 700,60 750,40"></path>
+<path class="stroke-primary/20 stroke-[1]" d="M0,140 C50,130 100,150 150,120 C200,90 250,100 300,70 C350,40 400,50 450,30 C500,10 550,40 600,50 C650,60 700,40 750,20"></path>
+</svg>
+<div class="absolute bottom-0 w-full flex justify-between font-label-md text-label-md text-on-surface-variant pt-4">
+<span>Jan</span><span>Mar</span><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Feature Importance -->
+<section class="md:col-span-5 glass-card p-8 rounded-3xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6">AI Feature Contribution</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md">Orientation Benefit</span>
+<span class="font-bold text-primary">+24%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md">Shading Impact</span>
+<span class="font-bold text-error">-12%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-[40%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md">Inverter Efficiency</span>
+<span class="font-bold text-primary">+18%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body-md text-body-md">Local Albedo Effect</span>
+<span class="font-bold text-secondary">+5%</span>
+</div>
+<div class="h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[20%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial Quick Stats -->
+<section class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="glass-card p-6 rounded-3xl border-l-4 border-primary">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-2">Recommended System</h4>
+<p class="font-headline-md text-headline-md text-primary">5.2 kWp <span class="text-body-sm font-normal text-on-surface-variant">Mono-Perc</span></p>
+</div>
+<div class="glass-card p-6 rounded-3xl border-l-4 border-secondary">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-2">Total Investment</h4>
+<p class="font-headline-md text-headline-md text-secondary">₹3,45,000 <span class="text-body-sm font-normal text-on-surface-variant">Inc. GST</span></p>
+</div>
+<div class="glass-card p-6 rounded-3xl border-l-4 border-primary">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-2">Payback Period</h4>
+<p class="font-headline-md text-headline-md text-primary">4.2 Years</p>
+</div>
+<div class="glass-card p-6 rounded-3xl border-l-4 border-on-surface">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-2">Lifetime Savings</h4>
+<p class="font-headline-md text-headline-md text-on-background">₹18.4L</p>
+</div>
+</section>
+<!-- Interactive 'What-If' Simulator -->
+<section class="md:col-span-6 glass-card p-8 rounded-3xl">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-secondary-container/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="tune">tune</span>
+</div>
+<h3 class="font-headline-md text-headline-md">What-If Simulator</h3>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-body-md text-body-md font-semibold">Cleaning Frequency</label>
+<span class="font-label-md text-label-md bg-surface-container px-2 py-1 rounded">Every 15 Days</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer custom-slider neomorphic-inset" max="100" min="0" type="range" value="70"/>
+</div>
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-body-md text-body-md font-semibold">Panel Efficiency Loss</label>
+<span class="font-label-md text-label-md bg-surface-container px-2 py-1 rounded">0.5% / Year</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer custom-slider neomorphic-inset" max="100" min="0" type="range" value="30"/>
+</div>
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-body-md text-body-md font-semibold">Future Shading Index</label>
+<span class="font-label-md text-label-md bg-surface-container px-2 py-1 rounded">Low Impact</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer custom-slider neomorphic-inset" max="100" min="0" type="range" value="10"/>
+</div>
+</div>
+</section>
+<!-- Subsidy Calculator -->
+<section class="md:col-span-6 glass-card p-8 rounded-3xl bg-primary text-white overflow-hidden relative">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+                    PM Surya Ghar Subsidy
+                </h3>
+<div class="space-y-4 relative z-10">
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="font-body-md text-body-md opacity-80">Central Government (MNRE)</span>
+<span class="font-headline-md text-headline-md">₹78,000</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-white/10">
+<span class="font-body-md text-body-md opacity-80">State Incentive (Maharashtra)</span>
+<span class="font-headline-md text-headline-md">₹14,500</span>
+</div>
+<div class="flex justify-between items-center pt-4">
+<span class="font-headline-md text-headline-md">Total Direct Benefit</span>
+<span class="text-secondary font-display-lg text-4xl">₹92,500</span>
+</div>
+</div>
+<p class="mt-6 font-body-sm text-body-sm opacity-60">Estimated approval time: 4-6 weeks post commissioning.</p>
+</section>
+<!-- 25-Year Projection Chart -->
+<section class="md:col-span-8 glass-card p-8 rounded-3xl">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6">Long-term Performance Analysis</h3>
+<div class="h-72 w-full">
+<div class="flex items-center gap-6 mb-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="font-label-md text-label-md">Cumulative Savings</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<span class="font-label-md text-label-md">System Degradation</span>
+</div>
+</div>
+<!-- Chart Graphic -->
+<div class="w-full h-full relative">
+<svg class="w-full h-full fill-none" viewbox="0 0 800 200">
+<!-- Savings Curve -->
+<path class="stroke-primary stroke-[3]" d="M0,180 Q200,160 400,100 T800,20"></path>
+<!-- Degradation Line -->
+<path class="stroke-error stroke-[1] stroke-dasharray-4" d="M0,180 L800,160"></path>
+<rect fill="url(#grid)" height="200" width="800" x="0" y="0"></rect>
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1"></path>
+</pattern>
+</defs>
+</svg>
+<div class="absolute top-0 right-0 p-4 text-right">
+<span class="font-data-display text-2xl text-primary font-bold">₹18.4L</span>
+<p class="font-label-md text-label-md text-on-surface-variant">Net Profit over 25 Years</p>
+</div>
+</div>
+</div>
+</section>
+<!-- EMI vs Savings -->
+<section class="md:col-span-4 glass-card p-8 rounded-3xl flex flex-col">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6">Cash Flow Neutrality</h3>
+<div class="flex-1 space-y-6">
+<div class="p-4 rounded-2xl bg-surface-container-low border border-primary/10">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Estimated Monthly EMI</p>
+<p class="font-headline-md text-headline-md text-error">₹6,400</p>
+</div>
+<div class="flex justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="compare_arrows">compare_arrows</span>
+</div>
+<div class="p-4 rounded-2xl bg-primary-container/20 border border-primary/20">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Monthly Bill Savings</p>
+<p class="font-headline-md text-headline-md text-primary">₹7,250</p>
+</div>
+<div class="mt-4 p-4 rounded-2xl bg-secondary-container/20 flex items-center justify-between">
+<span class="font-body-md text-body-md font-bold">Net Positive Flow</span>
+<span class="font-headline-md text-headline-md text-secondary">+₹850</span>
+</div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-6 text-center italic">Calculated based on 9.5% ROI Solar Loan (7 Years).</p>
+</section>
+</div>
+<!-- Visual Contextual Break -->
+<section class="mt-12 w-full h-80 rounded-3xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-angle architectural photography shot of a luxury Mumbai residence in Bandra West featuring a sleek, high-efficiency solar panel array integrated into the modern terrace design. The lighting is golden hour, reflecting off the glass panels and the Arabian Sea in the distance. The aesthetic is clean, premium, and sustainable, with deep emerald foliage surrounding the building and a clear, high-contrast sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7V6M4e5P4b95bwwbhZiKU_8ttafQPpAeQYVVJAH1tGeKwQp2C0Qy4on5JgvboLOX8gHaVP7e7ko6Vu3S9PdtiMBk2y-IShUvBPycpcigj-aYY6LgA4zl-yIFFB0qt09QbpSW3GrQF6ScZHVmzhH0B6JQEsrntcHo31QiVdc4wJtWUw7VTwxQX8ZNABJtNwBdPNOhOr1b6hO6tj9BntGO-V1IaiXiUomuEitgWkLVUIgR8fxpnzHzedOh9xe5kkURbfWoYtJg_FWY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-10">
+<h2 class="text-white font-headline-lg text-headline-lg">Digital Twin Real-Time Simulation</h2>
+<p class="text-white/80 font-body-lg text-body-lg max-w-2xl">Visualizing 8,760 hours of annual sunlight trajectory across your specific roof geometry.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto border-t border-outline-variant/30 bg-surface-container-lowest">
+<div class="mb-4 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-primary">SolarIQ India</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">© 2024 SolarIQ India. AI-Driven Sustainability.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Feasibility API</a>
+</div>
+</footer>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Simple animation for the progress circles on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const circles = document.querySelectorAll('circle[stroke-dashoffset]');
+            circles.forEach(circle => {
+                const target = circle.getAttribute('stroke-dashoffset');
+                circle.style.strokeDashoffset = '251';
+                setTimeout(() => {
+                    circle.style.transition = 'stroke-dashoffset 1.5s ease-out';
+                    circle.style.strokeDashoffset = target;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>
