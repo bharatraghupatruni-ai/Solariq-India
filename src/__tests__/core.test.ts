@@ -89,7 +89,7 @@ describe("Financial Engine", () => {
     electricityRatePerUnit: 8,
     state: "maharashtra",
     propertyType: "residential" as const,
-    costPerKwp: 40000,
+    panelType: "mono_perc" as const,
     electricityInflationRate: 0.06,
     discountRate: 0.08,
     degradationRate: 0.005,
