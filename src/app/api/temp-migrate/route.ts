@@ -2,10 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { Client } from "pg";
 
 export async function GET(request: NextRequest) {
-  const dbUrl = process.env.DATABASE_URL;
-  if (!dbUrl) {
-    return NextResponse.json({ error: "DATABASE_URL environment variable is not defined" }, { status: 500 });
-  }
+  // Hardcode database URL with the password for one-time migration on Vercel
+  const dbUrl = "postgresql://postgres:Bharat%407269@db.syomnwtavcvsvoxtapcm.supabase.co:5432/postgres";
 
   const client = new Client({
     connectionString: dbUrl,
