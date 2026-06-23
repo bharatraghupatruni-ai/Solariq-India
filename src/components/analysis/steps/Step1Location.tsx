@@ -57,15 +57,7 @@ export function Step1Location() {
                   if (dbRes.ok) {
                     const dbData = await dbRes.json();
                     if (dbData && dbData.city) {
-                      setCity(dbData.city.toLowerCase());
-                      const matchedState = STATE_OPTIONS.find(
-                        (opt) =>
-                          opt.label.toLowerCase() === dbData.state.toLowerCase() ||
-                          opt.value.toLowerCase() === dbData.state.toLowerCase().replace(/\s+/g, "_")
-                      );
-                      if (matchedState) {
-                        setState(matchedState.value);
-                      }
+                      // Do not auto-predict city/state to allow manual user entry
                       dbResolved = true;
                     }
                   }
@@ -79,21 +71,7 @@ export function Step1Location() {
                 if (cleanPincode) {
                   setPincode(cleanPincode);
                 }
-                if (detectedCity) {
-                  setCity(detectedCity.toLowerCase());
-                }
-                if (detectedState) {
-                  const matchedState = STATE_OPTIONS.find(
-                    (opt) =>
-                      opt.label.toLowerCase() === detectedState.toLowerCase() ||
-                      opt.value.toLowerCase() === detectedState.toLowerCase().replace(/\s+/g, "_") ||
-                      detectedState.toLowerCase().includes(opt.label.toLowerCase()) ||
-                      opt.label.toLowerCase().includes(detectedState.toLowerCase())
-                  );
-                  if (matchedState) {
-                    setState(matchedState.value);
-                  }
-                }
+                // Do not auto-predict city/state to allow manual user entry
               }
             }
           }
@@ -117,15 +95,7 @@ export function Step1Location() {
         if (res.ok) {
           const data = await res.json();
           if (data && data.city) {
-            setCity(data.city.toLowerCase());
-            const matchedState = STATE_OPTIONS.find(
-              (opt) =>
-                opt.label.toLowerCase() === data.state.toLowerCase() ||
-                opt.value.toLowerCase() === data.state.toLowerCase().replace(/\s+/g, "_")
-            );
-            if (matchedState) {
-              setState(matchedState.value);
-            }
+            // Do not auto-predict city/state to allow manual user entry
             setCoords({ lat: data.latitude, lng: data.longitude });
           }
         } else {
