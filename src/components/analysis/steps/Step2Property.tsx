@@ -17,6 +17,78 @@ const ORIENTATIONS = [
   { value: "north", label: "North Facing", desc: "Sub-Optimal Yield" },
 ] as const;
 
+const SHADING_OPTIONS = [
+  {
+    value: "none",
+    label: "No Shading",
+    icon: "wb_sunny",
+    desc: "Full sun — no trees or buildings overhead",
+    color: "text-emerald-600",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500",
+    impact: "0% loss",
+    impactColor: "text-emerald-600",
+  },
+  {
+    value: "partial",
+    label: "Partial Shading",
+    icon: "partly_cloudy_day",
+    desc: "Some shade from trees or nearby structures",
+    color: "text-amber-600",
+    bg: "bg-amber-500/10",
+    border: "border-amber-500",
+    impact: "~10% loss",
+    impactColor: "text-amber-600",
+  },
+  {
+    value: "heavy",
+    label: "Heavy Shading",
+    icon: "park",
+    desc: "Significant obstruction — large trees or buildings",
+    color: "text-red-600",
+    bg: "bg-red-500/10",
+    border: "border-red-500",
+    impact: "~18% loss",
+    impactColor: "text-red-600",
+  },
+] as const;
+
+const ENVIRONMENT_OPTIONS = [
+  {
+    value: "clean",
+    label: "Clean Air",
+    icon: "air",
+    desc: "Rural or coastal — minimal dust and pollution",
+    color: "text-sky-600",
+    bg: "bg-sky-500/10",
+    border: "border-sky-500",
+    impact: "0% loss",
+    impactColor: "text-sky-600",
+  },
+  {
+    value: "dusty",
+    label: "Dusty / Arid",
+    icon: "sand",
+    desc: "Dry region — frequent dust on panels",
+    color: "text-orange-600",
+    bg: "bg-orange-500/10",
+    border: "border-orange-500",
+    impact: "~5% loss",
+    impactColor: "text-orange-600",
+  },
+  {
+    value: "urban_smog",
+    label: "Urban Smog",
+    icon: "factory",
+    desc: "City centre — haze, smog, industrial pollution",
+    color: "text-purple-600",
+    bg: "bg-purple-500/10",
+    border: "border-purple-500",
+    impact: "~8% loss",
+    impactColor: "text-purple-600",
+  },
+] as const;
+
 export function Step2Property() {
   const { setStep, setProperty, wizard } = useAnalysisStore();
 
@@ -27,13 +99,16 @@ export function Step2Property() {
   const [roofArea, setRoofArea] = useState<string>(
     wizard.property?.roofAreaSqm?.toString() ?? ""
   );
-
-  // Maintain local state for orientation (defaults to south) and roof material
   const [orientationIdx, setOrientationIdx] = useState(0);
   const [roofMaterial, setRoofMaterial] = useState("Reinforced Concrete (RCC)");
+  const [shading, setShading] = useState<"none" | "partial" | "heavy">(
+    wizard.property?.shading ?? "none"
+  );
+  const [environment, setEnvironment] = useState<"clean" | "dusty" | "urban_smog">(
+    wizard.property?.environment ?? "clean"
+  );
 
   const currentOrientation = ORIENTATIONS[orientationIdx];
-
   const parsedArea = parseFloat(roofArea);
   const isAreaInvalid = roofArea !== "" && (isNaN(parsedArea) || parsedArea < 50);
   const canProceed = propertyName && propertyType && parsedArea >= 50;
@@ -44,7 +119,8 @@ export function Step2Property() {
       propertyName,
       roofAreaSqm: parseFloat(roofArea),
       manualAreaEntry: true,
-      // Pass down the selected orientation and material in stored state if supported (Zustand will ignore if not in types, but it's safe)
+      shading,
+      environment,
       orientation: currentOrientation.value,
       roofMaterial,
     } as any);
@@ -207,6 +283,88 @@ export function Step2Property() {
                 keyboard_arrow_down
               </span>
             </div>
+          </div>
+        </div>
+
+        {/* ── Shading Picker ── */}
+        <div>
+          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-1">
+            Rooftop Shading
+          </label>
+          <p className="text-[11px] text-stone-400 mb-3">
+            How much shadow does your roof receive during the day?
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {SHADING_OPTIONS.map((opt) => {
+              const isSelected = shading === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  id={`shading-${opt.value}`}
+                  onClick={() => setShading(opt.value)}
+                  className={`p-4 rounded-2xl border-2 transition-all text-left cursor-pointer ${
+                    isSelected
+                      ? `${opt.border} ${opt.bg}`
+                      : "border-stone-200 bg-white hover:bg-stone-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`material-symbols-outlined text-xl ${isSelected ? opt.color : "text-stone-400"}`}>
+                      {opt.icon}
+                    </span>
+                    <span className={`font-bold text-xs ${isSelected ? opt.color : "text-stone-600"}`}>
+                      {opt.label}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-stone-500 leading-normal mb-2">{opt.desc}</p>
+                  <div className={`text-[10px] font-bold uppercase tracking-wider ${opt.impactColor}`}>
+                    Generation impact: {opt.impact}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Dust / Environment Picker ── */}
+        <div>
+          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-wider block mb-1">
+            Dust &amp; Air Quality
+          </label>
+          <p className="text-[11px] text-stone-400 mb-3">
+            What is the typical air quality around your property?
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {ENVIRONMENT_OPTIONS.map((opt) => {
+              const isSelected = environment === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  id={`environment-${opt.value}`}
+                  onClick={() => setEnvironment(opt.value)}
+                  className={`p-4 rounded-2xl border-2 transition-all text-left cursor-pointer ${
+                    isSelected
+                      ? `${opt.border} ${opt.bg}`
+                      : "border-stone-200 bg-white hover:bg-stone-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`material-symbols-outlined text-xl ${isSelected ? opt.color : "text-stone-400"}`}>
+                      {opt.icon}
+                    </span>
+                    <span className={`font-bold text-xs ${isSelected ? opt.color : "text-stone-600"}`}>
+                      {opt.label}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-stone-500 leading-normal mb-2">{opt.desc}</p>
+                  <div className={`text-[10px] font-bold uppercase tracking-wider ${opt.impactColor}`}>
+                    Generation impact: {opt.impact}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

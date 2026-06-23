@@ -22,6 +22,8 @@ export interface PropertyStep {
   propertyName: string;
   roofAreaSqm: number;
   manualAreaEntry: boolean;
+  shading: "none" | "partial" | "heavy";
+  environment: "clean" | "dusty" | "urban_smog";
 }
 
 export interface EnergyStep {

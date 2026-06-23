@@ -33,6 +33,7 @@ export function Step4Budget() {
     setLoading(true);
 
     try {
+      const property = wizard.property as any;
       const payload = {
         latitude: wizard.location.latitude,
         longitude: wizard.location.longitude,
@@ -50,6 +51,8 @@ export function Step4Budget() {
         gridConnected: wizard.energy.gridConnected,
         panelPreference: panelPref,
         batteryInterest: batteryStorage,
+        shading: property.shading ?? "none",
+        environment: property.environment ?? "clean",
       };
 
       const res = await fetch("/api/analysis/create", {

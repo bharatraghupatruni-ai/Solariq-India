@@ -27,6 +27,8 @@ const schema = z.object({
   gridConnected: z.boolean().optional(),
   batteryInterest: z.boolean().optional(),
   panelPreference: z.enum(["mono_perc", "topcon", "hjt", "bifacial", "auto"]).optional(),
+  shading: z.enum(["none", "partial", "heavy"]).optional(),
+  environment: z.enum(["clean", "dusty", "urban_smog"]).optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -111,6 +113,12 @@ export async function POST(request: NextRequest) {
 
     // 2. Create roof analysis record
     const USABLE_RATIO = 0.70;
+    // Derive numeric shading factor from user's choice
+    const shadingMap: Record<string, number> = { none: 0.05, partial: 0.10, heavy: 0.18 };
+    const userShading = input.shading ?? "none";
+    const userEnvironment = input.environment ?? "clean";
+    const derivedShadingFactor = shadingMap[userShading] ?? 0.05;
+
     const { data: roofAnalysis, error: roofErr } = await supabase
       .from("roof_analyses")
       .insert({
@@ -119,7 +127,7 @@ export async function POST(request: NextRequest) {
         status: "processing",
         total_roof_area_sqm: input.roofAreaSqm,
         usable_roof_area_sqm: input.roofAreaSqm * USABLE_RATIO,
-        shading_factor: 0.05,
+        shading_factor: derivedShadingFactor,
         tilt_angle: 15,
         azimuth_angle: 180,
         detected_obstacles: [],
@@ -146,7 +154,10 @@ export async function POST(request: NextRequest) {
         discom_name: stateInfo?.discom ?? null,
         grid_connected: input.gridConnected ?? true,
         battery_storage_interest: input.batteryInterest ?? false,
-      })
+        // Store shading and environment chosen by user
+        shading: userShading,
+        environment: userEnvironment,
+      } as any)
       .select()
       .single();
 
@@ -194,7 +205,7 @@ export async function POST(request: NextRequest) {
       systemEfficiency: 0.80,
       panelType,
       latitude: input.latitude,
-      shadingFactor: 0.05,
+      shadingFactor: derivedShadingFactor,
       tiltAngle: 15,
       azimuthAngle: 180,
       monthlyGhi: weatherRaw.monthlyGhi,
@@ -272,7 +283,7 @@ export async function POST(request: NextRequest) {
     const suitabilityResult = calculateSuitabilityScore({
       roofAreaSqm: input.roofAreaSqm,
       usableAreaSqm: input.roofAreaSqm * USABLE_RATIO,
-      shadingFactor: 0.05,
+      shadingFactor: derivedShadingFactor,
       peakSunHoursDaily: weatherRaw.peakSunHoursDaily,
       tiltAngle: 15,
       financialResult,
@@ -320,10 +331,10 @@ export async function POST(request: NextRequest) {
             avgHumidity: weatherRaw.avgHumidityPct,
             roofArea: input.roofAreaSqm,
             orientation: "south",
-            shading: "none",
+            shading: userShading,
             cleaning: "monthly",
             panelType: input.panelPreference || "mono_perc",
-            environment: "clean",
+            environment: userEnvironment,
             latitude: input.latitude,
             month: new Date().getMonth() + 1,
             city: sanitizedCity,

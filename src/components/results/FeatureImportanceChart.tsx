@@ -20,7 +20,7 @@ function asText(v: any) {
 }
 
 const FEATURE_LABEL: Record<string, string> = {
-  annual_ghi:        "Solar Irradiance",
+  annual_ghi:        "Global Horizontal Irradiance (GHI)",
   peak_sun_hours:    "Peak Sun Hours",
   avg_temperature:   "Temperature",
   avg_humidity:      "Humidity",
@@ -29,7 +29,7 @@ const FEATURE_LABEL: Record<string, string> = {
   shading_score:     "Shading",
   cleaning_score:    "Cleaning Schedule",
   panel_efficiency:  "Panel Type",
-  environment_score: "Environment",
+  environment_score: "Environment / Dust",
   latitude:          "Latitude",
   month:             "Season / Month",
 };

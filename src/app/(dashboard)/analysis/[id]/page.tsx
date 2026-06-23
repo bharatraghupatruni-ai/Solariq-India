@@ -362,6 +362,20 @@ export default async function AnalysisResultPage({ params }: PageProps) {
           </h3>
           <div className="space-y-6">
             {mlResult.featureImportance.map((feat) => {
+              const FEAT_LABELS: Record<string, string> = {
+                annual_ghi: "Global Horizontal Irradiance (GHI)",
+                peak_sun_hours: "Peak Sun Hours",
+                avg_temperature: "Temperature",
+                avg_humidity: "Humidity",
+                roof_area: "Roof Area",
+                orientation_score: "Orientation",
+                shading_score: "Shading",
+                cleaning_score: "Cleaning Schedule",
+                panel_efficiency: "Panel Type",
+                environment_score: "Environment / Dust",
+                latitude: "Latitude",
+                month: "Season / Month",
+              };
               const isShading = feat.feature.toLowerCase().includes("shading");
               const isAlbedo = feat.feature.toLowerCase().includes("albedo") || feat.feature.toLowerCase().includes("humidity");
               const colorClass = isShading
@@ -377,7 +391,7 @@ export default async function AnalysisResultPage({ params }: PageProps) {
                 <div key={feat.feature}>
                   <div className="flex justify-between mb-2 text-xs">
                     <span className="font-semibold capitalize text-stone-700">
-                      {feat.feature.replace(/_/g, " ")}
+                      {FEAT_LABELS[feat.feature] ?? feat.feature.replace(/_/g, " ")}
                     </span>
                     <span className={textClass}>
                       {isShading ? "-" : "+"}
