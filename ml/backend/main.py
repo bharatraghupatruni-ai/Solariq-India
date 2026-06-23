@@ -19,6 +19,17 @@ from .pdf_generator import generate_pdf_report
 # Initialize DB tables
 Base.metadata.create_all(bind=engine)
 
+# Run raw migrations to alter tables on PostgreSQL if needed
+if engine.name == "postgresql":
+    try:
+        with engine.begin() as conn:
+            conn.exec_driver_sql("ALTER TABLE user_inputs ADD COLUMN IF NOT EXISTS shading TEXT DEFAULT 'none';")
+            conn.exec_driver_sql("ALTER TABLE user_inputs ADD COLUMN IF NOT EXISTS environment TEXT DEFAULT 'clean';")
+            print("PostgreSQL user_inputs table migration applied successfully.")
+    except Exception as migrate_err:
+        print("PostgreSQL database migration warning:", migrate_err)
+
+
 app = FastAPI(title="SolarAI India Backend", version="2.0.0")
 
 # Setup CORS
